@@ -1,5 +1,5 @@
 import json
-from typing import Any, Dict, Optional
+import httpx
 
 from src.common.constants import RETAILCRM_API_URL
 from src.common.dto import (
@@ -18,7 +18,7 @@ class UserService(BaseHttpService):
 
     async def get_customers_from_retailcrm(
         self, filters: CustomerFilter
-    ) -> Dict[str, Any]:
+    ) -> httpx.Response:
         params = {
             "filter[name]": filters.name,
             "filter[email]": filters.email,
@@ -27,11 +27,14 @@ class UserService(BaseHttpService):
             params["filter[dateFrom]"] = filters.registered_from
         if filters.registered_to:
             params["filter[dateTo]"] = filters.registered_to
-        return await self._get(endpoint="/customers", params=params)
+
+        result = await self._get(endpoint="/customers", params=params)
+
+        return result
 
     async def create_customer(
         self, customer_data: CustomerCreate
-    ) -> Optional[Dict[str, Any]]:
+    ) -> httpx.Response:
         data = {
             "customer": json.dumps(
                 {
@@ -63,11 +66,11 @@ class UserService(BaseHttpService):
 
         return await self._post("/customers/create", data=data)
 
-    async def get_order_by_customer_id(self, customer_id: int) -> Dict[str, Any]:
+    async def get_order_by_customer_id(self, customer_id: int) -> httpx.Response:
         params = {"filter[customerId]": customer_id}
         return await self._get("/orders", params=params)
 
-    async def create_order_with_customer_data(self, query: CreateOrderWithCustomerData):
+    async def create_order_with_customer_data(self, query: CreateOrderWithCustomerData) -> httpx.Response:
         data = {
             "order": json.dumps(
                 {
