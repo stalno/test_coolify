@@ -43,8 +43,3 @@ class CustomerCreate(BaseModel):
 
 class CustomerID(BaseModel):
     customer_id: int
-
-
-class CreateOrderWithCustomerData(CustomerID):
-    number: str = Field(default="45382057914")
-    product_name: str = Field(default="MacBook Air M1 16/256")

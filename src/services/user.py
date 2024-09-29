@@ -2,7 +2,7 @@ import json
 from typing import Any, Dict, Optional
 
 from src.common.constants import RETAILCRM_API_URL
-from src.common.dto.user import (
+from src.common.dto import (
     CustomerFilter,
     CustomerCreate,
     CreateOrderWithCustomerData,

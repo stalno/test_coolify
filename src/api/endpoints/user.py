@@ -1,8 +1,7 @@
-import httpx
 from typing import Annotated
 from fastapi import APIRouter, status, Depends
 from src.common.docs import NotFoundError, ForbiddenError, UnAuthorizedError, BadRequest
-from src.common.dto.user import (
+from src.common.dto import (
     CustomerFilter,
     CustomerCreate,
     CustomerID,
