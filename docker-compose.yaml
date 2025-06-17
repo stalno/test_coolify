@@ -6,7 +6,9 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: RetailCRM_Radis
-    env_file:
-      - .env
+    environment:
+      - RETAILCRM_API_KEY=gMTqWW6Atdsf11V7vYwcAbnmhBVQEHWf
+      - PROJECT_NAME=RetailCRM_API_Redis_Test
+      - PROJECT_VERSION=1.0.0
     ports:
       - "8080:8080"
