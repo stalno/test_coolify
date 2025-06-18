@@ -25,7 +25,7 @@ class ServerSettings(BaseSettings):
     headers: List[str] = ["*"]
     origins: List[str] = ["*"]
     host: str = "0.0.0.0"
-    port: int = 8080
+    port: int = 8081
 
 
 class Settings(BaseSettings):
