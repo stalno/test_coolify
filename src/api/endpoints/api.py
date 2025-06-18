@@ -17,3 +17,7 @@ api_router = APIRouter(prefix="/api", tags=["Api"])
 async def get_mp() -> JSONResponse:
     return JSONResponse(status_code=status.HTTP_200_OK, content={"message": "Hello World"})
 
+
+@api_router.get("/v1/base")
+async def get_base() -> JSONResponse:
+    return JSONResponse(status_code=status.HTTP_200_OK, content={"message": "Hello world"})
