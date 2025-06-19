@@ -8,10 +8,10 @@ services:
       - RETAILCRM_API_KEY=gMTqWW6Atdsf11V7vYwcAbnmhBVQEHWf
       - PROJECT_NAME=RetailCRM_API_Redis_Test
       - PROJECT_VERSION=1.0.0
-    ports:
-      - "8090:80"
+    # ports:  # НЕ НУЖНО!
+    #   - "8090:80"
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:8090/docs" ]
+      test: [ "CMD", "curl", "-f", "http://localhost:80/docs" ]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -21,4 +21,4 @@ services:
       - "traefik.http.routers.myapp.rule=Host(`test.radisby.ru`)"
       - "traefik.http.routers.myapp.entrypoints=http,https"
       - "traefik.http.routers.myapp.tls=true"
-      - "traefik.http.services.myapp.loadbalancer.server.port=8090"
+      - "traefik.http.services.myapp.loadbalancer.server.port=80"
