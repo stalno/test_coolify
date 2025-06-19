@@ -36,7 +36,7 @@ class Settings(BaseSettings):
         return Path(__file__).resolve().parent.parent.parent
 
     @classmethod
-    def path(cls, *paths: _StrPath, root_dir: Optional[Path] = None) -> Path
+    def path(cls, *paths: _StrPath, root_dir: Optional[Path] = None) -> Path:
         if root_dir is None:
             root_dir = cls.root_dir()
         return Path(root_dir, *paths)
