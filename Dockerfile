@@ -3,6 +3,13 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
+# Install runtime dependencies including wget for healthchecks
+RUN apt-get update && apt-get install -y \
+    wget \
+    # other dependencies...
+    && rm -rf /var/lib/apt/lists/*
+
+
 COPY pyproject.toml .
 COPY README.md .
 COPY poetry.lock .
