@@ -15,9 +15,3 @@ services:
       interval: 5s
       timeout: 20s
       retries: 10
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.myapp.rule=Host(`test.radisby.ru`)"
-      - "traefik.http.routers.myapp.entrypoints=http,https"
-      - "traefik.http.routers.myapp.tls=true"
-      - "traefik.http.services.myapp.loadbalancer.server.port=80"
