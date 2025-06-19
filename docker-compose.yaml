@@ -9,7 +9,7 @@ services:
       - PROJECT_NAME=RetailCRM_API_Redis_Test
       - PROJECT_VERSION=1.0.0
     ports:
-      - "80:80"
+      - "8090:80"
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost/docs" ]
       interval: 30s
