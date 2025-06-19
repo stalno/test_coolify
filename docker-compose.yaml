@@ -8,8 +8,6 @@ services:
       - RETAILCRM_API_KEY=gMTqWW6Atdsf11V7vYwcAbnmhBVQEHWf
       - PROJECT_NAME=RetailCRM_API_Redis_Test
       - PROJECT_VERSION=1.0.0
-    ports:
-      - "80:8081"
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8081/docs" ]
       interval: 30s
